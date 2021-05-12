@@ -146,7 +146,7 @@ ThermalScattering::ThermalScattering(hid_t group, const std::vector<double>& tem
 
 void
 ThermalScattering::calculate_xs(double E, double sqrtkT, int* i_temp,
-                                double* elastic, double* inelastic,
+                                double* elastic, double* elastic2, double* inelastic,
                                 uint64_t* seed) const
 {
   // Determine temperature for S(a,b) table
@@ -173,7 +173,7 @@ ThermalScattering::calculate_xs(double E, double sqrtkT, int* i_temp,
   *i_temp = i;
 
   // Calculate cross sections for ith temperature
-  data_[i].calculate_xs(E, elastic, inelastic);
+  data_[i].calculate_xs(E, elastic, elastic2, inelastic);
 }
 
 bool
@@ -218,6 +218,30 @@ ThermalData::ThermalData(hid_t group)
     close_group(elastic_group);
   }
 
+  // Incoherent elastic data in mixed elastic material
+  if (object_exists(group, "elastic2")) {
+    // Read cross section data
+    hid_t elastic2_group = open_group(group, "elastic2");
+
+    // Read elastic cross section
+    elastic2_.xs = read_function(elastic2_group, "xs");
+
+    // Read angle-energy distribution
+    hid_t dgroup = open_group(elastic2_group, "distribution");
+    std::string temp;
+    read_attribute(dgroup, "type", temp);
+    if (temp == "incoherent_elastic") {
+        elastic2_.distribution = std::make_unique<IncoherentElasticAE>(dgroup);
+      } else if (temp == "incoherent_elastic_discrete") {
+        auto xs = dynamic_cast<Tabulated1D*>(elastic2_.xs.get());
+        elastic2_.distribution = std::make_unique<IncoherentElasticAEDiscrete>(
+          dgroup, xs->x()
+        );
+      }
+
+    close_group(elastic2_group);
+  }
+
   // Inelastic data
   if (object_exists(group, "inelastic")) {
     // Read type of inelastic data
@@ -244,7 +268,7 @@ ThermalData::ThermalData(hid_t group)
 }
 
 void
-ThermalData::calculate_xs(double E, double* elastic, double* inelastic) const
+ThermalData::calculate_xs(double E, double* elastic, double* elastic2, double* inelastic) const
 {
   // Calculate thermal elastic scattering cross section
   if (elastic_.xs) {
@@ -253,6 +277,12 @@ ThermalData::calculate_xs(double E, double* elastic, double* inelastic) const
     *elastic = 0.0;
   }
 
+  // Calculate thermal elastic scattering cross section for second reaction in mixed elastic material
+  if (elastic2_.xs) {
+    *elastic2 = (*elastic2_.xs)(E);
+  } else {
+    *elastic2 = 0.0;
+  }
   // Calculate thermal inelastic scattering cross section
   *inelastic = (*inelastic_.xs)(E);
 }
@@ -262,8 +292,11 @@ ThermalData::sample(const NuclideMicroXS& micro_xs, double E,
                     double* E_out, double* mu, uint64_t* seed)
 {
   // Determine whether inelastic or elastic scattering will occur
-  if (prn(seed) < micro_xs.thermal_elastic / micro_xs.thermal) {
+  double r1 = prn(seed);
+  if (r1 < micro_xs.thermal_elastic / micro_xs.thermal) {
     elastic_.distribution->sample(E, *E_out, *mu, seed);
+  } else if (r1 < (micro_xs.thermal_elastic + micro_xs.thermal_elastic2) / micro_xs.thermal) {
+      elastic2_.distribution->sample(E, *E_out, *mu, seed);
   } else {
     inelastic_.distribution->sample(E, *E_out, *mu, seed);
   }

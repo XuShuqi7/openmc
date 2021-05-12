@@ -77,6 +77,7 @@ struct NuclideMicroXS {
                            //!<   averaged over bound and non-bound nuclei
   double thermal;          //!< Bound thermal elastic & inelastic scattering
   double thermal_elastic;  //!< Bound thermal elastic scattering
+  double thermal_elastic2; //!< Bound thermal elastic scattering for mixed elastic materials
   double photon_prod;      //!< microscopic photon production xs
 
   // Cross sections for depletion reactions (note that these are not stored in

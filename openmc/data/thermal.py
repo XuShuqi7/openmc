@@ -73,7 +73,270 @@ _THERMAL_NAMES = {
     'c_U_in_UN': ('u-un',),
     'c_U_in_UO2': ('uuo2', 'u-uo2', 'u-o2', 'u/o2', 'uuo200'),
     'c_Y_in_YH2': ('yyh2', 'y-yh2'),
-    'c_Zr_in_ZrH': ('zrzrh', 'zr-zrh', 'zr-h', 'zr/h')
+    'c_Zr_in_ZrH': ('zrzrh', 'zr-zrh', 'zr-h', 'zr/h'),
+    'c_Br_in_AgBr':('Br-001',),
+    'c_Ag_in_AgBr':('Ag-001',),
+    'c_Ag':('Ag-002',),
+    'c_O_in_Al2O3':('O-003',),
+    'c_Al_in_Al2O3':('Al-003',),
+    'c_C_in_Al4C3':('C-004',),
+    'c_Al_in_Al4C3':('Al-004',),
+    'c_N_in_AlN':('N-005',),
+    'c_Al_in_AlN':('Al-005',),
+    'c_Al':('Al-006',),
+    'c_Au':('Au-007',),
+    'c_F_in_BaF2':('F-008',),
+    'c_Ba_in_BaF2':('Ba-008',),
+    'c_O_in_BaO':('O-009',),
+    'c_Ba_in_BaO':('Ba-009',),
+    'c_Ba':('Ba-010',),
+    'c_Be_in_Be2C':('Be-011',),
+    'c_C_in_Be2C':('C-011',),
+    'c_Be_in_Be3N2':('Be-012',),
+    'c_N_in_Be3N2':('N-012',),
+    'c_Be_in_BeF2':('Be-013',),
+    'c_F_in_BeF2':('F-013',),
+    'c_H_in_BeH2':('H-014',),
+    'c_Be_in_BeH2':('Be-014',),
+    'c_H_in_BeO2H2-beta':('H-015',),
+    'c_Be_in_BeO2H2-beta':('Be-015',),
+    'c_O_in_BeO2H2-beta':('O-015',),
+    'c_Be_in_BeO':('Be-016',),
+    'c_O_in_BeO':('O-016',),
+    'c_Be':('Be-017',),
+    'c_O_in_Bi2O3-beta':('O-018',),
+    'c_Bi_in_Bi2O3-beta':('Bi-018',),
+    'c_F_in_BiF3-beta':('F-019',),
+    'c_Bi_in_BiF3-beta':('Bi-019',),
+    'c_F_in_BiF5':('F-020',),
+    'c_Bi_in_BiF5':('Bi-020',),
+    'c_O_in_BiO2':('O-021',),
+    'c_Bi_in_BiO2':('Bi-021',),
+    'c_Bi':('Bi-022',),
+    'c_C_in_C-diamond':('C-023',),
+    'c_C_in_C-graphite':('C-024',),
+    'c_C_in_CF4-alpha':('C-025',),
+    'c_F_in_CF4-alpha':('F-025',),
+    'c_C_in_CaCO3':('C-026',),
+    'c_O_in_CaCO3':('O-026',),
+    'c_Ca_in_CaCO3':('Ca-026',),
+    'c_F_in_CaF2':('F-027',),
+    'c_Ca_in_CaF2':('Ca-027',),
+    'c_H_in_CaH2':('H-028',),
+    'c_Ca_in_CaH2':('Ca-028',),
+    'c_H_in_CaOH2':('H-029',),
+    'c_O_in_CaOH2':('O-029',),
+    'c_Ca_in_CaOH2':('Ca-029',),
+    'c_O_in_CaO':('O-030',),
+    'c_Ca_in_CaO':('Ca-030',),
+    'c_O_in_CaZrO3':('O-031',),
+    'c_Ca_in_CaZrO3':('Ca-031',),
+    'c_Zr_in_CaZrO3':('Zr-031',),
+    'c_Ca':('Ca-032',),
+    'c_O_in_CeO2':('O-033',),
+    'c_Ce_in_CeO2':('Ce-033',),
+    'c_Cr':('Cr-034',),
+    'c_O_in_Cu2O':('O-035',),
+    'c_Cu_in_Cu2O':('Cu-035',),
+    'c_Cu':('Cu-036',),
+    'c_O_in_Dy2O3':('O-037',),
+    'c_Dy_in_Dy2O3':('Dy-037',),
+    'c_Fe_in_Fe-alpha':('Fe-038',),
+    'c_Fe_in_Fe-gamma':('Fe-039',),
+    'c_N_in_GaN':('N-040',),
+    'c_Ga_in_GaN':('Ga-040',),
+    'c_P_in_GaP':('P-041',),
+    'c_Ga_in_GaP':('Ga-041',),
+    'c_Ga_in_GaSe':('Ga-042',),
+    'c_Se_in_GaSe':('Se-042',),
+    'c_O_in_Ge3Bi4O12':('O-043',),
+    'c_Ge_in_Ge3Bi4O12':('Ge-043',),
+    'c_Bi_in_Ge3Bi4O12':('Bi-043',),
+    'c_Ge_in_GeTe':('Ge-044',),
+    'c_Te_in_GeTe':('Te-044',),
+    'c_Ge':('Ge-045',),
+    'c_O_in_HfO2':('O-046',),
+    'c_Hf_in_HfO2':('Hf-046',),
+    'c_O_in_Ho2O3':('O-047',),
+    'c_Ho_in_Ho2O3':('Ho-047',),
+    'c_K_in_KBr':('K-048',),
+    'c_Br_in_KBr':('Br-048',),
+    'c_F_in_KF':('F-049',),
+    'c_K_in_KF':('K-049',),
+    'c_H_in_KOH':('H-050',),
+    'c_O_in_KOH':('O-050',),
+    'c_K_in_KOH':('K-050',),
+    'c_K':('K-051',),
+    'c_O_in_La2O3':('O-052',),
+    'c_La_in_La2O3':('La-052',),
+    'c_Br_in_LaBr3':('Br-053',),
+    'c_La_in_LaBr3':('La-053',),
+    'c_Li_in_Li2O':('Li-054',),
+    'c_O_in_Li2O':('O-054',),
+    'c_Li_in_Li3N':('Li-055',),
+    'c_N_in_Li3N':('N-055',),
+    'c_Li_in_LiF':('Li-056',),
+    'c_F_in_LiF':('F-056',),
+    'c_H_in_LiH':('H-057',),
+    'c_Li_in_LiH':('Li-057',),
+    'c_O_in_Lu2O3':('O-058',),
+    'c_Lu_in_Lu2O3':('Lu-058',),
+    'c_O_in_Mg2SiO4':('O-059',),
+    'c_Mg_in_Mg2SiO4':('Mg-059',),
+    'c_Si_in_Mg2SiO4':('Si-059',),
+    'c_O_in_MgAl2O4':('O-060',),
+    'c_Mg_in_MgAl2O4':('Mg-060',),
+    'c_Al_in_MgAl2O4':('Al-060',),
+    'c_C_in_MgCO3':('C-061',),
+    'c_O_in_MgCO3':('O-061',),
+    'c_Mg_in_MgCO3':('Mg-061',),
+    'c_H_in_MgD2':('H-062',),
+    'c_Mg_in_MgD2':('Mg-062',),
+    'c_F_in_MgF2':('F-063',),
+    'c_Mg_in_MgF2':('Mg-063',),
+    'c_H_in_MgH2':('H-064',),
+    'c_Mg_in_MgH2':('Mg-064',),
+    'c_H_in_MgOH2':('H-065',),
+    'c_O_in_MgOH2':('O-065',),
+    'c_Mg_in_MgOH2':('Mg-065',),
+    'c_O_in_MgO':('O-066',),
+    'c_Mg_in_MgO':('Mg-066',),
+    'c_Mg':('Mg-067',),
+    'c_Mo':('Mo-068',),
+    'c_O_in_Na4Si3Al3O12Cl':('O-069',),
+    'c_Na_in_Na4Si3Al3O12Cl':('Na-069',),
+    'c_Al_in_Na4Si3Al3O12Cl':('Al-069',),
+    'c_Si_in_Na4Si3Al3O12Cl':('Si-069',),
+    'c_Cl_in_Na4Si3Al3O12Cl':('Cl-069',),
+    'c_H_in_NaAlH4':('H-070',),
+    'c_Na_in_NaAlH4':('Na-070',),
+    'c_Al_in_NaAlH4':('Al-070',),
+    'c_O_in_NaBrO3':('O-071',),
+    'c_Na_in_NaBrO3':('Na-071',),
+    'c_Br_in_NaBrO3':('Br-071',),
+    'c_Na_in_NaBr':('Na-072',),
+    'c_Br_in_NaBr':('Br-072',),
+    'c_Na_in_NaCl':('Na-073',),
+    'c_Cl_in_NaCl':('Cl-073',),
+    'c_F_in_NaF':('F-074',),
+    'c_Na_in_NaF':('Na-074',),
+    'c_Na_in_NaI':('Na-075',),
+    'c_I_in_NaI':('I-075',),
+    'c_H_in_NaMgH3':('H-076',),
+    'c_Na_in_NaMgH3':('Na-076',),
+    'c_Mg_in_NaMgH3':('Mg-076',),
+    'c_H_in_NaOH':('H-077',),
+    'c_O_in_NaOH':('O-077',),
+    'c_Na_in_NaOH':('Na-077',),
+    'c_Na':('Na-078',),
+    'c_Nb':('Nb-079',),
+    'c_O_in_Nd2O3':('O-080',),
+    'c_Nd_in_Nd2O3':('Nd-080',),
+    'c_Ni':('Ni-081',),
+    'c_O_in_P2O5':('O-082',),
+    'c_P_in_P2O5':('P-082',),
+    'c_O_in_Pb3O4':('O-083',),
+    'c_Pb_in_Pb3O4':('Pb-083',),
+    'c_C_in_PbCO3':('C-084',),
+    'c_O_in_PbCO3':('O-084',),
+    'c_Pb_in_PbCO3':('Pb-084',),
+    'c_F_in_PbF2':('F-085',),
+    'c_Pb_in_PbF2':('Pb-085',),
+    'c_F_in_PbF4':('F-086',),
+    'c_Pb_in_PbF4':('Pb-086',),
+    'c_O_in_PbO-alpha':('O-087',),
+    'c_Pb_in_PbO-alpha':('Pb-087',),
+    'c_O_in_PbO-beta':('O-088',),
+    'c_Pb_in_PbO-beta':('Pb-088',),
+    'c_S_in_PbS':('S-089',),
+    'c_Pb_in_PbS':('Pb-089',),
+    'c_Pb':('Pb-090',),
+    'c_Pd':('Pd-091',),
+    'c_O_in_Pr2O3':('O-092',),
+    'c_Pr_in_Pr2O3':('Pr-092',),
+    'c_Pt':('Pt-093',),
+    'c_Rb':('Rb-094',),
+    'c_O_in_Sc2O3':('O-095',),
+    'c_Sc_in_Sc2O3':('Sc-095',),
+    'c_Sc':('Sc-096',),
+    'c_N_in_Si3N4-beta':('N-097',),
+    'c_Si_in_Si3N4-beta':('Si-097',),
+    'c_C_in_SiC-alpha':('C-098',),
+    'c_Si_in_SiC-alpha':('Si-098',),
+    'c_C_in_SiC-beta':('C-099',),
+    'c_Si_in_SiC-beta':('Si-099',),
+    'c_O_in_SiLu2O5':('O-100',),
+    'c_Si_in_SiLu2O5':('Si-100',),
+    'c_Lu_in_SiLu2O5':('Lu-100',),
+    'c_O_in_SiO2-alpha':('O-101',),
+    'c_Si_in_SiO2-alpha':('Si-101',),
+    'c_O_in_SiO2-beta':('O-102',),
+    'c_Si_in_SiO2-beta':('Si-102',),
+    'c_O_in_SiY2O5':('O-103',),
+    'c_Si_in_SiY2O5':('Si-103',),
+    'c_Y_in_SiY2O5':('Y-103',),
+    'c_Si':('Si-104',),
+    'c_F_in_SnF2':('F-105',),
+    'c_Sn_in_SnF2':('Sn-105',),
+    'c_F_in_SnF4':('F-106',),
+    'c_Sn_in_SnF4':('Sn-106',),
+    'c_Sn':('Sn-107',),
+    'c_F_in_SrF2':('F-108',),
+    'c_Sr_in_SrF2':('Sr-108',),
+    'c_H_in_SrH2':('H-109',),
+    'c_Sr_in_SrH2':('Sr-109',),
+    'c_O_in_SrTiO3':('O-110',),
+    'c_Ti_in_SrTiO3':('Ti-110',),
+    'c_Sr_in_SrTiO3':('Sr-110',),
+    'c_Sr':('Sr-111',),
+    'c_N_in_Th3N4':('N-112',),
+    'c_Th_in_Th3N4':('Th-112',),
+    'c_O_in_ThO2':('O-113',),
+    'c_Th_in_ThO2':('Th-113',),
+    'c_O_in_ThSiO4':('O-114',),
+    'c_Si_in_ThSiO4':('Si-114',),
+    'c_Th_in_ThSiO4':('Th-114',),
+    'c_O_in_TiO2-anatase':('O-115',),
+    'c_Ti_in_TiO2-anatase':('Ti-115',),
+    'c_O_in_TiO2-rutile':('O-116',),
+    'c_Ti_in_TiO2-rutile':('Ti-116',),
+    'c_Ti':('Ti-117',),
+    'c_Br_in_TlBr':('Br-118',),
+    'c_Tl_in_TlBr':('Tl-118',),
+    'c_O_in_Tm2O3':('O-119',),
+    'c_Tm_in_Tm2O3':('Tm-119',),
+    'c_F_in_UF6':('F-120',),
+    'c_U_in_UF6':('U-120',),
+    'c_O_in_UO2':('O-121',),
+    'c_U_in_UO2':('U-121',),
+    'c_V':('V-122',),
+    'c_W':('W-123',),
+    'c_O_in_Y2O3':('O-124',),
+    'c_Y_in_Y2O3':('Y-124',),
+    'c_O_in_Y3Al5O12':('O-125',),
+    'c_Al_in_Y3Al5O12':('Al-125',),
+    'c_Y_in_Y3Al5O12':('Y-125',),
+    'c_O_in_YAlO3':('O-126',),
+    'c_Al_in_YAlO3':('Al-126',),
+    'c_Y_in_YAlO3':('Y-126',),
+    'c_Y':('Y-127',),
+    'c_F_in_ZnF2':('F-128',),
+    'c_Zn_in_ZnF2':('Zn-128',),
+    'c_O_in_ZnO':('O-129',),
+    'c_Zn_in_ZnO':('Zn-129',),
+    'c_S_in_ZnS-sphalerite':('S-130',),
+    'c_Zn_in_ZnS-sphalerite':('Zn-130',),
+    'c_Zn':('Zn-131',),
+    'c_F_in_ZrF4-beta':('F-132',),
+    'c_Zr_in_ZrF4-beta':('Zr-132',),
+    'c_O_in_ZrO2-tet':('O-133',),
+    'c_Zr_in_ZrO2-tet':('Zr-133',),
+    'c_O_in_ZrO2':('O-134',),
+    'c_Zr_in_ZrO2':('Zr-134',),
+    'c_O_in_ZrSiO4':('O-135',),
+    'c_Si_in_ZrSiO4':('Si-135',),
+    'c_Zr_in_ZrSiO4':('Zr-135',),
+    'c_Zr':('Zr-136',)
 }
 
 
@@ -469,6 +732,8 @@ class ThermalScattering(EqualityMixin):
             # Write elastic/inelastic reaction data
             if self.elastic is not None:
                 self.elastic.to_hdf5(g, 'elastic')
+            if self.elastic2 is not None:
+                self.elastic2.to_hdf5(g, 'elastic2')
             self.inelastic.to_hdf5(g, 'inelastic')
 
     def add_temperature_from_ace(self, ace_or_filename, name=None):
@@ -515,6 +780,11 @@ class ThermalScattering(EqualityMixin):
         if data.elastic is not None:
             self.elastic.xs.update(data.elastic.xs)
             self.elastic.distribution.update(data.elastic.distribution)
+
+        # Add elastic cross sectoin and angular distribution
+        if data.elastic2 is not None:
+            self.elastic2.xs.update(data.elastic2.xs)
+            self.elastic2.distribution.update(data.elastic2.distribution)
 
     @classmethod
     def from_hdf5(cls, group_or_filename):
@@ -568,6 +838,13 @@ class ThermalScattering(EqualityMixin):
             table.elastic = ThermalScatteringReaction.from_hdf5(
                 group, 'elastic', table.temperatures
             )
+
+        # Read thermal elastic scattering
+        if 'elastic2' in group[table.temperatures[0]]:
+            table.elastic2 = ThermalScatteringReaction.from_hdf5(
+                group, 'elastic2', table.temperatures
+            )
+
 
         # Read thermal inelastic scattering
         table.inelastic = ThermalScatteringReaction.from_hdf5(
@@ -681,33 +958,72 @@ class ThermalScattering(EqualityMixin):
             {T: inelastic_xs}, {T: distribution}
         )
 
-        # Incoherent/coherent elastic scattering cross section
-        idx = ace.jxs[4]
-        n_mu = ace.nxs[6] + 1
-        if idx != 0:
+        if (ace.nxs[5] < 5):
+            # Incoherent/coherent elastic scattering cross section
+            idx = ace.jxs[4]
+            n_mu = ace.nxs[6] + 1
+            if idx != 0:
+                n_energy = int(ace.xss[idx])
+                energy = ace.xss[idx + 1: idx + 1 + n_energy]*EV_PER_MEV
+                P = ace.xss[idx + 1 + n_energy: idx + 1 + 2 * n_energy]
+
+                if ace.nxs[5] == 4:
+                    # Coherent elastic
+                    xs = CoherentElastic(energy, P*EV_PER_MEV)
+                    distribution = CoherentElasticAE(xs)
+
+                    # Coherent elastic shouldn't have angular distributions listed
+                    assert n_mu == 0, "assert n_mu == 0"
+                elif ace.nxs[5] == 3:
+                    # Incoherent elastic
+                    xs = Tabulated1D(energy, P)
+
+                    # Angular distribution
+                    assert n_mu > 0, "assert n_mu > 0"
+                    idx = ace.jxs[6]
+                    mu_out = ace.xss[idx:idx + n_energy * n_mu]
+                    mu_out.shape = (n_energy, n_mu)
+                    distribution = IncoherentElasticAEDiscrete(mu_out)
+                elif  ace.nxs[5] == 5:
+                    # Mixed elastic
+                    # Coherent part
+                    xs = CoherentElastic(energy, P*EV_PER_MEV)
+                    distribution = CoherentElasticAE(xs)
+
+                    # Coherent elastic shouldn't have angular distributions listed
+                    assert n_mu == 0, "assert n_mu == 0"
+
+                table.elastic = ThermalScatteringReaction({T: xs}, {T: distribution})
+        else:
+            # mixed elastic scattering cross section
+            idx = ace.jxs[4]
+            assert idx != 0, "Coherent part not found in mixed"
+            idx2 = ace.jxs[7]
+            assert idx2 != 0, "Incoherent part not found in mixed"
+            n_mu2 = ace.jxs[10] + 1
+            assert n_mu2 > 0, "Incoherent part should have angular distribution"
             n_energy = int(ace.xss[idx])
             energy = ace.xss[idx + 1: idx + 1 + n_energy]*EV_PER_MEV
             P = ace.xss[idx + 1 + n_energy: idx + 1 + 2 * n_energy]
 
-            if ace.nxs[5] == 4:
-                # Coherent elastic
-                xs = CoherentElastic(energy, P*EV_PER_MEV)
-                distribution = CoherentElasticAE(xs)
-
-                # Coherent elastic shouldn't have angular distributions listed
-                assert n_mu == 0
-            else:
-                # Incoherent elastic
-                xs = Tabulated1D(energy, P)
-
-                # Angular distribution
-                assert n_mu > 0
-                idx = ace.jxs[6]
-                mu_out = ace.xss[idx:idx + n_energy * n_mu]
-                mu_out.shape = (n_energy, n_mu)
-                distribution = IncoherentElasticAEDiscrete(mu_out)
-
+            # Coherent elastic
+            xs = CoherentElastic(energy, P*EV_PER_MEV)
+            distribution = CoherentElasticAE(xs)
             table.elastic = ThermalScatteringReaction({T: xs}, {T: distribution})
+
+            n_energy2 = int(ace.xss[idx2])
+            energy2 = ace.xss[idx2 + 1: idx2 + 1 + n_energy2]*EV_PER_MEV
+            P2 = ace.xss[idx2 + 1 + n_energy2: idx2 + 1 + 2 * n_energy2]
+
+            xs2 = Tabulated1D(energy2, P2)
+
+            # Angular distribution
+            mu_idx = ace.jxs[9]
+            mu_out2 = ace.xss[mu_idx:mu_idx + n_energy2 * n_mu2]
+            mu_out2.shape = (n_energy2, n_mu2)
+            distribution2 = IncoherentElasticAEDiscrete(mu_out2)
+
+            table.elastic2 = ThermalScatteringReaction({T: xs2}, {T: distribution2})
 
         # Get relevant nuclides -- NJOY only allows one to specify three
         # nuclides that the S(a,b) table applies to. Thus, for all elements

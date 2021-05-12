@@ -41,7 +41,7 @@ public:
   //! \param[in] E Incident neutron energy in [eV]
   //! \param[out] elastic Elastic scattering cross section in [b]
   //! \param[out] inelastic Inelastic scattering cross section in [b]
-  void calculate_xs(double E, double* elastic, double* inelastic) const;
+  void calculate_xs(double E, double* elastic, double* elastic2, double* inelastic) const;
 
   //! Sample an outgoing energy and angle
   //
@@ -62,8 +62,10 @@ private:
     std::unique_ptr<AngleEnergy> distribution; //!< Secondary angle-energy distribution
   };
 
-  // Inelastic scattering data
+  // Elastic scattering data
   Reaction elastic_;
+  Reaction elastic2_;
+  // Inelastic scattering data
   Reaction inelastic_;
 
   // ThermalScattering needs access to private data members
@@ -87,7 +89,7 @@ public:
   //! \param[out] elastic Thermal elastic scattering cross section
   //! \param[out] inelastic Thermal inelastic scattering cross section
   //! \param[inout] seed Pseudorandom seed pointer
-  void calculate_xs(double E, double sqrtkT, int* i_temp, double* elastic,
+  void calculate_xs(double E, double sqrtkT, int* i_temp, double* elastic, double* elastic2,
                     double* inelastic, uint64_t* seed) const;
 
   //! Determine whether table applies to a particular nuclide

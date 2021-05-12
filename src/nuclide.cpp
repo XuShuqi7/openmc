@@ -561,6 +561,7 @@ void Nuclide::calculate_xs(int i_sab, int i_log_union, double sab_frac, Particle
   micro.elastic = CACHE_INVALID;
   micro.thermal = 0.0;
   micro.thermal_elastic = 0.0;
+  micro.thermal_elastic2 = 0.0;
 
   // Check to see if there is multipole data present at this energy
   bool use_mp = false;
@@ -770,12 +771,14 @@ void Nuclide::calculate_sab_xs(int i_sab, double sab_frac, Particle& p)
   // Calculate the S(a,b) cross section
   int i_temp;
   double elastic;
+  double elastic2;
   double inelastic;
-  data::thermal_scatt[i_sab]->calculate_xs(p.E_, p.sqrtkT_, &i_temp, &elastic, &inelastic, p.current_seed());
+  data::thermal_scatt[i_sab]->calculate_xs(p.E_, p.sqrtkT_, &i_temp, &elastic, &elastic2, &inelastic, p.current_seed());
 
   // Store the S(a,b) cross sections.
-  micro.thermal = sab_frac * (elastic + inelastic);
+  micro.thermal = sab_frac * (elastic + elastic2 + inelastic);
   micro.thermal_elastic = sab_frac * elastic;
+  micro.thermal_elastic2 = sab_frac * elastic2;
 
   // Calculate free atom elastic cross section
   this->calculate_elastic_xs(p);
