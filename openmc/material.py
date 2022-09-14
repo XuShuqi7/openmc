@@ -343,9 +343,10 @@ class Material(IDManagerMixin):
         material = cls()
 
         for frac, atom in NC_comp:
-            if not atom.isNaturalElement():
-                raise ValueError('NCrystal-OpenMC interface only works with natural elements for now.')
-            material.add_element(atom.elementName(), frac, 'ao')
+            if (atom.A() == 0):
+                material.add_element(atom.displayLabel(), frac, 'ao')
+            else:
+                material.add_nuclide(atom.displayLabel(), frac, 'ao')
 
         material._NCrystal_cfg = cfg
         material._density_units = "g/cm3"
